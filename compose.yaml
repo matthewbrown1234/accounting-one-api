@@ -1,0 +1,11 @@
+services:
+  postgres:
+    profiles:
+      - 'dev'
+    image: 'postgres:16'
+    environment:
+      - 'POSTGRES_DB=accounting_one'
+      - 'POSTGRES_PASSWORD=accounting_one'
+      - 'POSTGRES_USER=accounting_one'
+    ports:
+      - '5432'

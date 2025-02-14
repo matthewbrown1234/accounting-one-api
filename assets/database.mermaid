@@ -1,0 +1,41 @@
+classDiagram
+direction BT
+class account {
+   varchar(255) account_id
+   varchar(255) account_name
+   varchar(255) account_type
+   integer id
+}
+class account_entry {
+   integer account_id
+   numeric(15,2) value
+   varchar(255) name
+   timestamp with time zone entry_date
+   integer id
+}
+class account_entry_category {
+   integer account_entry_id
+   integer category_id
+   integer id
+}
+class category {
+   varchar(255) name
+   integer id
+}
+class flyway_schema_history {
+   varchar(50) version
+   varchar(200) description
+   varchar(20) type
+   varchar(1000) script
+   integer checksum
+   varchar(100) installed_by
+   timestamp installed_on
+   integer execution_time
+   boolean success
+   integer installed_rank
+}
+
+account  -->  account : account_id:id
+account_entry  -->  account : account_id:id
+account_entry_category  -->  account_entry : account_entry_id:id
+account_entry_category  -->  category : category_id:id
